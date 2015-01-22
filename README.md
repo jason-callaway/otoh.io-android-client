@@ -1,6 +1,6 @@
 # otoh.io Android Client
 
-Android client for otoh.io social key management
+Android client for otoh.io social key management.  Learn more at https://otoh.io.
 
 This is tricky to build right now.  It should get easier in the next few days.  Check back soon, or email jason@otoh.io if you can't wait.
 
