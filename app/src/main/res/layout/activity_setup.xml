@@ -1,0 +1,107 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="top"
+        tools:context="io.otoh.otohio.SetupActivity">
+
+        <TextView
+            android:text="@string/setup_identity"
+            android:textSize="20dp"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <EditText android:id="@+id/new_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/username" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/check_availability"
+                android:onClick="checkAvailability" />
+
+            </LinearLayout>
+
+        <EditText android:id="@+id/email"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email" />
+
+        <EditText android:id="@+id/nick_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/nick_name" />
+
+        <EditText android:id="@+id/password"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/choose_a_password" />
+
+        <EditText android:id="@+id/password_confirm"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/confirm_password" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/strong_password" />
+
+        <!--
+        <TextView
+            android:id="@+id/tos"
+            android:text="@string/tos"
+            android:layout_margin="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="12"
+            android:scrollbars="vertical" />
+        -->
+
+        <Button
+            android:id="@+id/agree_and_create"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/agree_and_create"
+            android:onClick="agreeAndCreate"
+            android:enabled="false" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:text="@string/name_with_tagling" />
+
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/drawer_list_setup"
+        android:entries="@array/drawer_items"
+        android:background="#FFFFFF"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start" >
+    </ListView>
+
+
+</android.support.v4.widget.DrawerLayout>
+

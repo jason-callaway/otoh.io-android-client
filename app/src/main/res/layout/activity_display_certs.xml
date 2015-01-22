@@ -1,0 +1,99 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="top"
+        tools:context="io.otoh.otohio.DisplayCertsActivity">
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="@string/display_certs"
+                    android:textSize="20dp"
+                    android:layout_margin="5dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="@string/pgp_fingerprint_is"
+                    android:layout_margin="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/pgp_fingerprint"
+                    android:layout_margin="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/certs_explanation"
+                    android:text="@string/certs_explanation"
+                    android:layout_margin="12dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="8"
+                    android:scrollbars="vertical" />
+
+                <Button
+                    android:id="@+id/install_certificates"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Install Certificates"
+                    android:onClick="installCertificates" />
+
+                <TextView
+                    android:id="@+id/dscert_display"
+                    android:layout_margin="12dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="8"
+                    android:scrollbars="vertical" />
+
+                <TextView
+                    android:id="@+id/kecert_display"
+                    android:layout_margin="12dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="12"
+                    android:scrollbars="vertical" />
+    <!--
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/display_certs_done"
+                    android:onClick="doneButton" />
+    -->
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/drawer_list_display"
+        android:entries="@array/drawer_items"
+        android:background="#FFFFFF"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start" >
+    </ListView>
+
+
+</android.support.v4.widget.DrawerLayout>
