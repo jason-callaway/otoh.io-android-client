@@ -248,10 +248,14 @@ public class GenIdentityActivity extends Activity {
                     SystemClock.sleep(1000);
                     File worldDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "otoh.io");
                     worldDir.mkdirs();
+                    File usernameDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "otoh.io/" + username);
+                    usernameDir.mkdirs();
+                    File identityDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "otoh.io/" + username + "/" + nickname);
+                    identityDir.mkdirs();
                     File dsp12 = new File(getApplicationContext().getFilesDir(), dsp12filename);
                     File kep12 = new File(getApplicationContext().getFilesDir(), dsp12filename);
-                    File dsout = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/otoh.io", dsp12filename);
-                    File keout = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/otoh.io", kep12filename);
+                    File dsout = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/otoh.io/" + username + "/" + nickname + "/", dsp12filename);
+                    File keout = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/otoh.io/" + username + "/" + nickname + "/", kep12filename);
 
                     copy(dsp12, dsout);
                     copy(kep12, keout);
@@ -274,8 +278,8 @@ public class GenIdentityActivity extends Activity {
 
                     File pkrin = new File(getApplicationContext().getFilesDir(), pkrname);
                     File skrin = new File(getApplicationContext().getFilesDir(), skrname);
-                    File pkrout = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/otoh.io", pkrname);
-                    File skrout = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/otoh.io", skrname);
+                    File pkrout = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/otoh.io/" + username + "/" + nickname + "/", pkrname);
+                    File skrout = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/otoh.io/" + username + "/" + nickname + "/", skrname);
 
                     copy(pkrin, pkrout);
                     copy(skrin, skrout);
