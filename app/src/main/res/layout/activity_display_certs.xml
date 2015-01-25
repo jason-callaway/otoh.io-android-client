@@ -29,6 +29,13 @@
                     android:layout_height="wrap_content" />
 
                 <TextView
+                    android:id="@+id/cert_location"
+                    android:text="@string/cert_location"
+                    android:layout_margin="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
                     android:text="@string/pgp_fingerprint_is"
                     android:layout_margin="12dp"
                     android:layout_width="match_parent"

@@ -265,15 +265,16 @@ public class otoh {
 
     public static KeyPair generateRSAKeyPair() throws Exception {
         KeyPairGenerator kpGen = KeyPairGenerator.getInstance("RSA", "SC");
-        kpGen.initialize(4096, new SecureRandom());
-        //kpGen.initialize(512, new SecureRandom());
+        //kpGen.initialize(4096, new SecureRandom());
+        kpGen.initialize(512, new SecureRandom());
         return kpGen.generateKeyPair();
     }
 
     public static Vector generatePGPKeyPair(String nickname, String email, String password) throws Exception {
         String identity = nickname + " <" + email + ">";
         RSAKeyPairGenerator kpg = new RSAKeyPairGenerator();
-        kpg.init(new RSAKeyGenerationParameters(BigInteger.valueOf(0x10001), new SecureRandom(), 4096, 12));
+        //kpg.init(new RSAKeyGenerationParameters(BigInteger.valueOf(0x10001), new SecureRandom(), 4096, 12));
+        kpg.init(new RSAKeyGenerationParameters(BigInteger.valueOf(0x10001), new SecureRandom(), 512, 12));
 
         PGPKeyPair rsakp_sign = new BcPGPKeyPair(PGPPublicKey.RSA_SIGN, kpg.generateKeyPair(), new Date());
         PGPKeyPair rsakp_enc = new BcPGPKeyPair(PGPPublicKey.RSA_ENCRYPT, kpg.generateKeyPair(), new Date());

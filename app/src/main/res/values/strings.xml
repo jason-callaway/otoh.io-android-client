@@ -74,5 +74,6 @@
     <string name="drawer_open">Open Navigation Drawer</string>
     <string name="drawer_close">Close Navigation Drawer</string>
     <string name="pgp_fingerprint_is">Your PGP fingerprint is:</string>
+    <string name="cert_location">Your certs live here:</string>
 
 </resources>

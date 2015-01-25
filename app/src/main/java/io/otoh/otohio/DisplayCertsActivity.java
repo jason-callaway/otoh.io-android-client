@@ -30,6 +30,7 @@ public class DisplayCertsActivity extends Activity implements AdapterView.OnItem
     String keCert;
     String nickname;
     String fingerprint;
+    String username;
 
     // Navigation menu start
     private DrawerLayout drawerLayout;
@@ -101,7 +102,9 @@ public class DisplayCertsActivity extends Activity implements AdapterView.OnItem
         dsCert = intent.getStringExtra("dsCert");
         keCert = intent.getStringExtra("keCert");
         nickname = intent.getStringExtra("nickname");
+        username = intent.getStringExtra("username");
 
+        TextView certLocation = (TextView)findViewById(R.id.cert_location);
         TextView pgpFingerprint = (TextView)findViewById(R.id.pgp_fingerprint);
         TextView dsCertView = (TextView)findViewById(R.id.dscert_display);
         TextView keCertView = (TextView)findViewById(R.id.kecert_display);
@@ -112,6 +115,11 @@ public class DisplayCertsActivity extends Activity implements AdapterView.OnItem
         dsCertView.setHorizontallyScrolling(true);
         keCertView.setHorizontallyScrolling(true);
 
+        try {
+            certLocation.setText("Your certs can be found in Documents/otoh.io/" + nickname);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         pgpFingerprint.setText(fingerprint.replaceAll("(.{4})(?!$)", "$1 "));
         dsCertView.setText("ds Cert:\n" + dsCert);
         keCertView.setText("ke Cert:\n" + keCert);
