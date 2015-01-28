@@ -59,6 +59,22 @@ public class DisplayCertsActivity extends Activity implements AdapterView.OnItem
     }
 
     private void selectItem(int position) {
+        if(position == 0){
+            Intent intent = new Intent(DisplayCertsActivity.this, IdentitiesActivity.class);
+            startActivity(intent);
+        }
+        else if(position == 1){
+            // contacts
+        }
+        else if(position == 2){
+            // search
+        }
+        else if(position == 3){
+            // account
+        }
+        else if(position == 4){
+            // settings
+        }
 
     }
 
