@@ -64,6 +64,7 @@
     <string name="confirm_password">Confirm password</string>
     <string name="strong_password">Choose a strong password.  Tip: pick the first letter of every word in a sentence, including capitalization and punctuation.\n\nExample sentence: Wow, this otoh.io app is really great; I\'m going to tell all my friends!\n\nExample password: W,toairg;Igttamf!</string>
     <string name="passwords_no_not_match">Passwords do not match</string>
+
     <string-array name="drawer_items">
         <item>Identities</item>
         <item>Contacts</item>
@@ -71,9 +72,11 @@
         <item>Account</item>
         <item>Settings</item>
     </string-array>
+
     <string name="drawer_open">Open Navigation Drawer</string>
     <string name="drawer_close">Close Navigation Drawer</string>
     <string name="pgp_fingerprint_is">Your PGP fingerprint is:</string>
     <string name="cert_location">Your certs live here:</string>
+    <string name="title_activity_identity">IdentityActivity</string>
 
 </resources>

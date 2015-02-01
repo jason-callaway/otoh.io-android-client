@@ -42,6 +42,10 @@
             android:name=".IdentitiesActivity"
             android:label="@string/title_activity_identities" >
         </activity>
+        <activity
+            android:name=".IdentityActivity"
+            android:label="@string/title_activity_identity" >
+        </activity>
     </application>
 
 </manifest>
