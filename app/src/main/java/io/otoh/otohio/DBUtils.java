@@ -22,9 +22,9 @@ public class DBUtils extends SQLiteOpenHelper {
 
         String query = "CREATE TABLE identities (name TEXT PRIMARY KEY, alias TEXT)";
         db.execSQL(query);
-        query = "CREATE TABLE certs (id INTEGER PRIMARY KEY, identityName TEXT, name TEXT, keyUse TEXT, path TEXT, FOREIGN KEY (identityName) REFERENCES identities (name)) ON DELETE CASCADE";
+        query = "CREATE TABLE certs (name TEXT PRIMARY KEY, identityName TEXT, path TEXT, keyUse TEXT, FOREIGN KEY (identityName) REFERENCES identities (name)) ON DELETE CASCADE";
         db.execSQL(query);
-        query = "CREATE TABLE keyrings (id INTEGER PRIMARY KEY, identityName TEXT, name TEXT, type TEXT, fingerprint TEXT, path TEXT, FOREIGN KEY (identityName) REFERENCES identities (name)) ON DELETE CASCADE";
+        query = "CREATE TABLE keyrings (name TEXT PRIMARY KEY, identityName TEXT, path TEXT, type TEXT, fingerprint TEXT, FOREIGN KEY (identityName) REFERENCES identities (name)) ON DELETE CASCADE";
         db.execSQL(query);
 
     }
@@ -59,16 +59,16 @@ public class DBUtils extends SQLiteOpenHelper {
         valuesIdentity.put("name", queryValues.get("identitiesName"));
         valuesIdentity.put("alias", queryValues.get("identitiesAlias"));
 
-        valuesCerts.put("id", queryValues.get("certsId"));
         valuesCerts.put("name", queryValues.get("certsName"));
-        valuesCerts.put("keyUse", queryValues.get("certsKeyUse"));
+        valuesCerts.put("identityName", queryValues.get("identitiesName"));
         valuesCerts.put("path", queryValues.get("certsPath"));
+        valuesCerts.put("keyUse", queryValues.get("certsKeyUse"));
 
-        valuesKeyrings.put("keyringId", queryValues.get("keyringsId"));
         valuesKeyrings.put("name", queryValues.get("keyringsName"));
+        valuesKeyrings.put("identityName", queryValues.get("identitiesName"));
+        valuesKeyrings.put("path", queryValues.get("keyringsPath"));
         valuesKeyrings.put("type", queryValues.get("keyringsType"));
         valuesKeyrings.put("fingerprint", queryValues.get("keyringsFingerprint"));
-        valuesKeyrings.put("path", queryValues.get("keyringsPath"));
 
         db.insert("identities", null, valuesIdentity);
         db.insert("certs", null, valuesCerts);
@@ -77,6 +77,14 @@ public class DBUtils extends SQLiteOpenHelper {
         db.close();
 
     }
+
+    // TODO: addCert()
+
+    // TODO: addKeyring()
+
+    // TODO: deleteCert();
+
+    // TODO: deleteKeyring();
 
     public void deleteIdentity(String name){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -109,11 +117,10 @@ public class DBUtils extends SQLiteOpenHelper {
         if(cursor.moveToFirst()) {
             do {
                 HashMap<String, String> map = new HashMap<String, String>();
-                map.put("id", cursor.getString(0));
                 map.put("identityName", cursor.getString(1));
                 map.put("name", cursor.getString(2));
-                map.put("keyUse", cursor.getString(3));
-                map.put("path", cursor.getString(4));
+                map.put("path", cursor.getString(3));
+                map.put("keyUse", cursor.getString(4));
                 list.add(map);
             } while(cursor.moveToNext());
         }
@@ -128,12 +135,11 @@ public class DBUtils extends SQLiteOpenHelper {
         if(cursor.moveToFirst()) {
             do {
                 HashMap<String, String> map = new HashMap<String, String>();
-                map.put("id", cursor.getString(0));
                 map.put("identityName", cursor.getString(1));
                 map.put("name", cursor.getString(2));
-                map.put("type", cursor.getString(3));
+                map.put("path", cursor.getString(3));
+                map.put("type", cursor.getString(4));
                 map.put("fingerprint", cursor.getString(4));
-                map.put("path", cursor.getString(5));
                 list.add(map);
             } while(cursor.moveToNext());
         }
