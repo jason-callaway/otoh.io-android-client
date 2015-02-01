@@ -273,7 +273,20 @@ public class otoh {
     public static Vector generatePGPKeyPair(String nickname, String email, String password) throws Exception {
         String identity = nickname + " <" + email + ">";
         RSAKeyPairGenerator kpg = new RSAKeyPairGenerator();
-        //kpg.init(new RSAKeyGenerationParameters(BigInteger.valueOf(0x10001), new SecureRandom(), 4096, 12));
+
+        /*
+         *  The first argument to RSAKeyGenerationParameters is the RSA public exponent, which needs
+         *  to be a Fermat Number, specifically a Fermat prime.  There are only a few known Fermat
+         *  primes: 3, 5, 17, 257, 65537.  Most people use 65537, although 3 should also be safe.
+         *  In my experimentation, using 3 is not perceptibly faster, so we're using 65537 which is
+         *  0x10001.
+         *  Reference:
+         *    * http://goo.gl/iTPctB (BouncyCastle docs)
+         *    * http://goo.gl/JmDl7t (Crypto StackExchange)
+         *    * http://en.wikipedia.org/wiki/Fermat_number
+         *    * http://oeis.org/A000215
+         */
+        // TODO: Make key length a passable parameter
         kpg.init(new RSAKeyGenerationParameters(BigInteger.valueOf(0x10001), new SecureRandom(), 512, 12));
 
         PGPKeyPair rsakp_sign = new BcPGPKeyPair(PGPPublicKey.RSA_SIGN, kpg.generateKeyPair(), new Date());

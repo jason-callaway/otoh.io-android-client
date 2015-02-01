@@ -136,7 +136,7 @@ public class DisplayCertsActivity extends Activity implements AdapterView.OnItem
         } catch (Exception e) {
             e.printStackTrace();
         }
-        pgpFingerprint.setText(fingerprint.replaceAll("(.{4})(?!$)", "$1 "));
+        pgpFingerprint.setText(fingerprint.replaceAll("(.{4})(?!$)", "$1 ").replaceAll("(.{25})(.*)", "$1\n$2"));
         dsCertView.setText("ds Cert:\n" + dsCert);
         keCertView.setText("ke Cert:\n" + keCert);
     }
