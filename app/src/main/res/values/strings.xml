@@ -67,6 +67,7 @@
 
     <string-array name="drawer_items">
         <item>Identities</item>
+        <item>Scan</item>
         <item>Contacts</item>
         <item>Search</item>
         <item>Account</item>
@@ -78,5 +79,20 @@
     <string name="pgp_fingerprint_is">Your PGP fingerprint is:</string>
     <string name="cert_location">Your certs live here:</string>
     <string name="title_activity_identity">IdentityActivity</string>
+    <string name="identity">Identity</string>
+    <string name="reputation">Reputation</string>
+    <string name="ds_fingerprint">Digital Signature Fingerprint</string>
+    <string name="ke_fingerprint">Key Encipherment Fingerprint</string>
+    <string name="pgp_fingerprint">PGP Fingerprint</string>
+    <string name="email_address">Email Address</string>
+    <string name="copy_ds_pub">Copy DS Pub</string>
+    <string name="restore_ds_cert">Restore DS Cert</string>
+    <string name="copy_ke_pub">Copy KE Pub</string>
+    <string name="restore_ke_cert">Restore KE Cert</string>
+    <string name="copy_pgp_pub">Copy PGP Pub</string>
+    <string name="restore_pgp_kr">Restore PGP KR</string>
+    <string name="view_reputation_graph">View Reputation Graph</string>
+    <string name="backup_private_keys">Backup Private Keys</string>
+    <string name="display_qr_code">Display QR Code</string>
 
 </resources>

@@ -22,7 +22,7 @@ public class DBUtils extends SQLiteOpenHelper {
 
         String query = "CREATE TABLE IF NOT EXIST identities (name TEXT PRIMARY KEY, alias TEXT)";
         db.execSQL(query);
-        query = "CREATE TABLE IF NOT EXIST certs (name TEXT PRIMARY KEY, identityName TEXT, path TEXT, keyUse TEXT, FOREIGN KEY (identityName) REFERENCES identities (name)) ON DELETE CASCADE";
+        query = "CREATE TABLE IF NOT EXIST certs (name TEXT PRIMARY KEY, identityName TEXT, path TEXT, keyUse TEXT, finerprint TEXT, FOREIGN KEY (identityName) REFERENCES identities (name)) ON DELETE CASCADE";
         db.execSQL(query);
         query = "CREATE TABLE IF NOT EXIST keyrings (name TEXT PRIMARY KEY, identityName TEXT, path TEXT, type TEXT, fingerprint TEXT, FOREIGN KEY (identityName) REFERENCES identities (name)) ON DELETE CASCADE";
         db.execSQL(query);
@@ -65,6 +65,7 @@ public class DBUtils extends SQLiteOpenHelper {
         valuesCerts.put("identityName", queryValues.get("identitiesName"));
         valuesCerts.put("path", queryValues.get("certsPath"));
         valuesCerts.put("keyUse", queryValues.get("certsKeyUse"));
+        valuesCerts.put("fingerprint", queryValues.get("certsFingerprint"));
 
         valuesKeyrings.put("name", queryValues.get("keyringsName"));
         valuesKeyrings.put("identityName", queryValues.get("identitiesName"));
@@ -123,6 +124,7 @@ public class DBUtils extends SQLiteOpenHelper {
                 map.put("name", cursor.getString(2));
                 map.put("path", cursor.getString(3));
                 map.put("keyUse", cursor.getString(4));
+                map.put("fingerprint", cursor.getString(5));
                 list.add(map);
             } while(cursor.moveToNext());
         }

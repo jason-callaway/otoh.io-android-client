@@ -58,15 +58,18 @@ public class IdentitiesActivity extends ListActivity implements AdapterView.OnIt
             startActivity(intent);
         }
         else if(position == 1){
-            // contacts
+            // scan
         }
         else if(position == 2){
-            // search
+            // contacts
         }
         else if(position == 3){
-            // account
+            // search
         }
         else if(position == 4){
+            // account
+        }
+        else if(position == 5){
             // settings
         }
 
