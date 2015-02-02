@@ -108,6 +108,7 @@ public class IdentitiesActivity extends ListActivity implements AdapterView.OnIt
         setTitle("Your Identities");
 
         ArrayList<HashMap<String, String>> identitiesList = dbUtils.getIdentities();
+
         ListView listView = getListView();
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -122,8 +123,8 @@ public class IdentitiesActivity extends ListActivity implements AdapterView.OnIt
 
         ListAdapter adapter = new SimpleAdapter(
                 IdentitiesActivity.this, identitiesList, R.layout.identities_entry,
-                new String[] {"identityName"},
-                new int[] {R.id.identity_name});
+                new String[] {"name", "alias"},
+                new int[] {R.id.identity_name, R.id.identity_alias});
 
         setListAdapter(adapter);
 
