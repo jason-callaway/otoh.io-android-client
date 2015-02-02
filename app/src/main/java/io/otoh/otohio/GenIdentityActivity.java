@@ -32,11 +32,14 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.KeyPair;
 import java.security.KeyStore;
+import java.security.MessageDigest;
+import java.security.PublicKey;
 import java.security.Security;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Vector;
 import java.util.concurrent.Executor;
 
@@ -63,6 +66,8 @@ public class GenIdentityActivity extends Activity {
     private String fingerprint;
 
     private Integer updateCounter = new Integer(0);
+
+    private DBUtils dbUtils = new DBUtils(GenIdentityActivity.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,7 +96,7 @@ public class GenIdentityActivity extends Activity {
                 pd.setTitle("Processing...");
                 pd.setMessage("Stand by");
                 pd.setCancelable(false);
-                pd.setMax(12);
+                pd.setMax(13);
                 pd.setIndeterminate(false);
                 pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
                 pd.setProgressNumberFormat(null);
@@ -123,15 +128,23 @@ public class GenIdentityActivity extends Activity {
                 cal.add(Calendar.YEAR, 10);
                 Date end = cal.getTime();
                 try {
+                    MessageDigest md = MessageDigest.getInstance("MD5");
+
                     // generate DS key pair
                     updateProgress("Generating RSA key pair for DS certificate");
                     alias  = "ds-" + nickname;
                     KeyPair dskp = o.generateRSAKeyPair();
+                    PublicKey dspub = dskp.getPublic();
+                    byte[] dspubDigest = md.digest(new String(Base64.encode(dspub.getEncoded())).getBytes());
+                    String dsFingerprint = new String(Base64.encode(dspubDigest));
 
                     //generate KE key pair
                     updateProgress("Generating RSA key pair for KE certificate");
                     alias = "ke-" + nickname;
                     KeyPair kekp = o.generateRSAKeyPair();
+                    PublicKey kepub = dskp.getPublic();
+                    byte[] kepubDigest = md.digest(new String(Base64.encode(kepub.getEncoded())).getBytes());
+                    String keFingerprint = new String(Base64.encode(kepubDigest));
 
                     //generate a PGP key pair
                     updateProgress("Generating PGP key pair");
@@ -282,6 +295,41 @@ public class GenIdentityActivity extends Activity {
                     copy(pkrin, pkrout);
                     copy(skrin, skrout);
 
+                    // Last step is to populate our SQLite database
+                    updateProgress("Updating Database");
+                    SystemClock.sleep(1000);
+                    HashMap<String, String> map = new HashMap<String, String>();
+                    map.put("identitiesName", username);
+                    map.put("identitiesAlias", nickname);
+                    dbUtils.insertIdentity(map);
+
+                    map.clear();
+                    map.put("certsName", dsp12filename);
+                    map.put("certsPath", "Documents/otoh.io/" + nickname);
+                    map.put("certsKeyUse", "Digital Signature");
+                    map.put("certsFingerprint", dsFingerprint);
+                    dbUtils.insertCert(map, username);
+
+                    map.clear();
+                    map.put("certsName", kep12filename);
+                    map.put("certsPath", "Documents/otoh.io/" + nickname);
+                    map.put("certsKeyUse", "Key Encipherment");
+                    map.put("certsFingerprint", keFingerprint);
+                    dbUtils.insertCert(map, username);
+
+                    map.clear();
+                    map.put("keyringsName", skrname);
+                    map.put("keyringsPath", "Documents/otoh.io/" + nickname);
+                    map.put("keyringsType", "Secret Keyring");
+                    map.put("keyringsFingerprint", "not implemented");
+                    dbUtils.insertCert(map, username);
+
+                    map.clear();
+                    map.put("keyringsName", pkrname);
+                    map.put("keyringsPath", "Documents/otoh.io/" + nickname);
+                    map.put("keyringsType", "Public Keyring");
+                    map.put("keyringsFingerprint", fingerprint);
+                    dbUtils.insertCert(map, username);
 
                     // All done!
                     updateProgress("Complete");

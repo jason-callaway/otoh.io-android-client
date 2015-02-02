@@ -96,5 +96,40 @@ public class IdentityActivity extends Activity implements AdapterView.OnItemClic
         setContentView(R.layout.activity_identity);
     }
 
+    public void copyDsPub(View view){
+
+    }
+
+    public void restoreDsCert(View view) {
+
+    }
+
+    public void copyKePub(View view){
+
+    }
+
+    public void restoreKeCert(View view){
+
+    }
+
+    public void copyPgpPub(View view){
+
+    }
+
+    public void restorePgpKr(View view){
+
+    }
+
+    public void viewReputationGraph(View view){
+
+    }
+
+    public void backupPrivateKeys(View view){
+
+    }
+
+    public void displayQrCode(View view){
+
+    }
 
 }

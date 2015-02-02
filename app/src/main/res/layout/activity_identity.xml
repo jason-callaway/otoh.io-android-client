@@ -194,7 +194,7 @@
             />
         <Button
             android:id="@+id/identities_button_restore_pgp_kr"
-            android:onClick="restore_pgp_kr"
+            android:onClick="restorePgpKr"
             android:layout_width="50%"
             android:layout_height="wrap_content"
             android:text="@string/restore_pgp_kr"

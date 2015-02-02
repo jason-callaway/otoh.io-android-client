@@ -53,32 +53,41 @@ public class DBUtils extends SQLiteOpenHelper {
 
     public void insertIdentity(HashMap<String, String> queryValues) {
         SQLiteDatabase db = this.getWritableDatabase();
-
         ContentValues valuesIdentity = new ContentValues();
-        ContentValues valuesCerts = new ContentValues();
-        ContentValues valuesKeyrings = new ContentValues();
 
         valuesIdentity.put("name", queryValues.get("identitiesName"));
         valuesIdentity.put("alias", queryValues.get("identitiesAlias"));
 
+        db.insert("identities", null, valuesIdentity);
+        db.close();
+    }
+
+    public void insertCert(HashMap<String, String> queryValues, String identity) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues valuesCerts = new ContentValues();
+
         valuesCerts.put("name", queryValues.get("certsName"));
-        valuesCerts.put("identityName", queryValues.get("identitiesName"));
+        valuesCerts.put("identityName", identity);
         valuesCerts.put("path", queryValues.get("certsPath"));
         valuesCerts.put("keyUse", queryValues.get("certsKeyUse"));
         valuesCerts.put("fingerprint", queryValues.get("certsFingerprint"));
 
+        db.insert("certs", null, valuesCerts);
+        db.close();
+    }
+
+    public void insertKeyring(HashMap<String, String> queryValues, String identity){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues valuesKeyrings = new ContentValues();
+
         valuesKeyrings.put("name", queryValues.get("keyringsName"));
-        valuesKeyrings.put("identityName", queryValues.get("identitiesName"));
+        valuesKeyrings.put("identityName", identity);
         valuesKeyrings.put("path", queryValues.get("keyringsPath"));
         valuesKeyrings.put("type", queryValues.get("keyringsType"));
         valuesKeyrings.put("fingerprint", queryValues.get("keyringsFingerprint"));
 
-        db.insert("identities", null, valuesIdentity);
-        db.insert("certs", null, valuesCerts);
         db.insert("keyrings", null, valuesKeyrings);
-
         db.close();
-
     }
 
     // TODO: addCert()
