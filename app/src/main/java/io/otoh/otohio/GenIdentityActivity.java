@@ -132,6 +132,7 @@ public class GenIdentityActivity extends Activity {
 
                     // generate DS key pair
                     updateProgress("Generating RSA key pair for DS certificate");
+                    SystemClock.sleep(1000);
                     alias  = "ds-" + nickname;
                     KeyPair dskp = o.generateRSAKeyPair();
                     PublicKey dspub = dskp.getPublic();
@@ -140,6 +141,7 @@ public class GenIdentityActivity extends Activity {
 
                     //generate KE key pair
                     updateProgress("Generating RSA key pair for KE certificate");
+                    SystemClock.sleep(1000);
                     alias = "ke-" + nickname;
                     KeyPair kekp = o.generateRSAKeyPair();
                     PublicKey kepub = dskp.getPublic();
@@ -147,7 +149,7 @@ public class GenIdentityActivity extends Activity {
                     String keFingerprint = new String(Base64.encode(kepubDigest));
 
                     //generate a PGP key pair
-                    updateProgress("Generating PGP key pair");
+                    updateProgress("Generating PGP key pair (takes some time)");
                     alias = "ke-" + nickname;
                     // TODO: add password edittext
                     Vector pgpkp = o.generatePGPKeyPair(nickname, email, password);

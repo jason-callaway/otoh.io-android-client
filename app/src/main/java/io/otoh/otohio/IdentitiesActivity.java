@@ -24,7 +24,7 @@ public class IdentitiesActivity extends ListActivity implements AdapterView.OnIt
 
     Intent intent;
     TextView identityName;
-    DBUtils dbUtils = new DBUtils(this);
+    DBUtils dbUtils = new DBUtils(IdentitiesActivity.this);
 
     // Navigation menu start
     private DrawerLayout drawerLayout;

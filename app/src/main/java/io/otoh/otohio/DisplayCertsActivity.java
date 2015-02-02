@@ -59,6 +59,30 @@ public class DisplayCertsActivity extends Activity implements AdapterView.OnItem
     }
 
     private void selectItem(int position) {
+//        if(position == 0){
+//            Intent intent = new Intent(DisplayCertsActivity.this, IdentitiesActivity.class);
+//            startActivity(intent);
+//        }
+//        else if(position == 1){
+//            // scan
+//        }
+//        else if(position == 2){
+//            // contacts
+//        }
+//        else if(position == 3){
+//            // search
+//        }
+//        else if(position == 4){
+//            // account
+//        }
+//        else if(position == 5){
+//            // settings
+//        }
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long it){
         if(position == 0){
             Intent intent = new Intent(DisplayCertsActivity.this, IdentitiesActivity.class);
             startActivity(intent);
@@ -78,12 +102,6 @@ public class DisplayCertsActivity extends Activity implements AdapterView.OnItem
         else if(position == 5){
             // settings
         }
-
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long it){
-
     }
 
     @Override

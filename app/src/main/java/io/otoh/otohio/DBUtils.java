@@ -20,11 +20,11 @@ public class DBUtils extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("PRAGMA foreign_keys=ON");
 
-        String query = "CREATE TABLE IF NOT EXIST identities (name TEXT PRIMARY KEY, alias TEXT)";
+        String query = "CREATE TABLE IF NOT EXISTS identities (name TEXT PRIMARY KEY, alias TEXT)";
         db.execSQL(query);
-        query = "CREATE TABLE IF NOT EXIST certs (name TEXT PRIMARY KEY, identityName TEXT, path TEXT, keyUse TEXT, finerprint TEXT, FOREIGN KEY (identityName) REFERENCES identities (name)) ON DELETE CASCADE";
+        query = "CREATE TABLE IF NOT EXISTS certs (name TEXT PRIMARY KEY, identityName TEXT, path TEXT, keyUse TEXT, fingerprint TEXT, FOREIGN KEY (identityName) REFERENCES identities (name) ON DELETE CASCADE)";
         db.execSQL(query);
-        query = "CREATE TABLE IF NOT EXIST keyrings (name TEXT PRIMARY KEY, identityName TEXT, path TEXT, type TEXT, fingerprint TEXT, FOREIGN KEY (identityName) REFERENCES identities (name)) ON DELETE CASCADE";
+        query = "CREATE TABLE IF NOT EXISTS keyrings (name TEXT PRIMARY KEY, identityName TEXT, path TEXT, type TEXT, fingerprint TEXT, FOREIGN KEY (identityName) REFERENCES identities (name) ON DELETE CASCADE)";
         db.execSQL(query);
 
     }

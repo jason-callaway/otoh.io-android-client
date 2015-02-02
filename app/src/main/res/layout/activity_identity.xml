@@ -143,18 +143,16 @@
         <Button
             android:id="@+id/identities_button_copy_ds_pub"
             android:onClick="copyDsPub"
-            android:layout_width="50%"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/copy_ds_pub"
-             />
+            android:text="@string/copy_ds_pub" />
         <Button
             android:id="@+id/identities_button_restore_ds_cert"
             android:onClick="restoreDsCert"
-            android:layout_width="50%"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/restore_ds_cert"
-            android:layout_weight="1"
-             />
+            android:layout_weight="1" />
 
     </TableRow>
 
@@ -165,18 +163,16 @@
         <Button
             android:id="@+id/identities_button_copy_ke_pub"
             android:onClick="copyKePub"
-            android:layout_width="50%"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/copy_ke_pub"
-            />
+            android:text="@string/copy_ke_pub" />
         <Button
             android:id="@+id/identities_button_restore_ke_cert"
             android:onClick="restoreKeCert"
-            android:layout_width="50%"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/restore_ke_cert"
-            android:layout_weight="1"
-            />
+            android:layout_weight="1" />
 
     </TableRow>
 
@@ -188,18 +184,16 @@
         <Button
             android:id="@+id/identities_button_copy_pgp_pub"
             android:onClick="copyPgpPub"
-            android:layout_width="50%"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/copy_pgp_pub"
-            />
+            android:text="@string/copy_pgp_pub" />
         <Button
             android:id="@+id/identities_button_restore_pgp_kr"
             android:onClick="restorePgpKr"
-            android:layout_width="50%"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/restore_pgp_kr"
-            android:layout_weight="1"
-            />
+            android:layout_weight="1" />
 
     </TableRow>
 
@@ -211,10 +205,10 @@
         <Button
             android:id="@+id/identities_button_view_reputation_graph"
             android:onClick="viewReputationGraph"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/view_reputation_graph"
-            android:layout_weight="1"
-            />
+            android:layout_weight="1" />
 
     </TableRow>
 
@@ -226,10 +220,10 @@
         <Button
             android:id="@+id/identities_button_backup_private_keys"
             android:onClick="backupPrivateKeys"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/backup_private_keys"
-            android:layout_weight="1"
-            />
+            android:layout_weight="1" />
 
     </TableRow>
 
@@ -241,10 +235,10 @@
         <Button
             android:id="@+id/identities_button_display_qr_code"
             android:onClick="displayQrCode"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/display_qr_code"
-            android:layout_weight="1"
-            />
+            android:layout_weight="1" />
 
     </TableRow>
 
