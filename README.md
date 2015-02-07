@@ -20,7 +20,7 @@ Also, you'll need the [Android Support Library](https://developer.android.com/to
 
     ```
     cd ~/AndroidStudioProjects/otoh.io  
-    git clone https://github.com/otohdotio/android.git  
+    git clone https://github.com/otohdotio/otoh.io-android-client.git  
     git checkout interesting_branch
     ```
 
@@ -33,7 +33,7 @@ Also, you'll need the [Android Support Library](https://developer.android.com/to
 4. Rename the repo to something useful to you, like:
 
     ```
-    $ mv android otoh.io
+    $ mv otoh.io-android-client otoh.io
     ```
 
 5. Download the [Spongy Castle](http://rtyley.github.io/spongycastle/) jars.
@@ -45,5 +45,3 @@ Also, you'll need the [Android Support Library](https://developer.android.com/to
     wget http://search.maven.org/remotecontent?filepath=com/madgag/spongycastle/pkix/1.51.0.0/pkix-1.51.0.0.jar  
     wget http://search.maven.org/remotecontent?filepath=com/madgag/spongycastle/pg/1.51.0.0/pg-1.51.0.0.jar  
     ```
-
-6. Gradle sync  
