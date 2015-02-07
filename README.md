@@ -45,3 +45,12 @@ Also, you'll need the [Android Support Library](https://developer.android.com/to
     wget http://search.maven.org/remotecontent?filepath=com/madgag/spongycastle/pkix/1.51.0.0/pkix-1.51.0.0.jar -O pkix-1.51.0.0.jar 
     wget http://search.maven.org/remotecontent?filepath=com/madgag/spongycastle/pg/1.51.0.0/pg-1.51.0.0.jar -O pg-1.51.0.0.jar 
     ```
+
+6. Download Apache Commons-IO
+
+    ```
+    cd ~
+    wget http://download.nextag.com/apache//commons/io/binaries/commons-io-2.4-bin.tar.gz -O commons-io-2.4-bin.tar.gz
+    tar xvzf commons-io-2.4-bin.tar.gz
+    cp commons-io-2.4/commons-io-2.4.jar path/to/otoh.io/app/libs
+    ```
