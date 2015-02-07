@@ -40,8 +40,8 @@ Also, you'll need the [Android Support Library](https://developer.android.com/to
 
     ```
     cd otoh.io/app/libs  
-    wget http://search.maven.org/remotecontent?filepath=com/madgag/spongycastle/core/1.51.0.0/core-1.51.0.0.jar  
-    wget http://search.maven.org/remotecontent?filepath=com/madgag/spongycastle/prov/1.51.0.0/prov-1.51.0.0.jar  
-    wget http://search.maven.org/remotecontent?filepath=com/madgag/spongycastle/pkix/1.51.0.0/pkix-1.51.0.0.jar  
-    wget http://search.maven.org/remotecontent?filepath=com/madgag/spongycastle/pg/1.51.0.0/pg-1.51.0.0.jar  
+    wget http://search.maven.org/remotecontent?filepath=com/madgag/spongycastle/core/1.51.0.0/core-1.51.0.0.jar -O core-1.51.0.0.jar
+    wget http://search.maven.org/remotecontent?filepath=com/madgag/spongycastle/prov/1.51.0.0/prov-1.51.0.0.jar -O prov-1.51.0.0.jar 
+    wget http://search.maven.org/remotecontent?filepath=com/madgag/spongycastle/pkix/1.51.0.0/pkix-1.51.0.0.jar -O pkix-1.51.0.0.jar 
+    wget http://search.maven.org/remotecontent?filepath=com/madgag/spongycastle/pg/1.51.0.0/pg-1.51.0.0.jar -O pg-1.51.0.0.jar 
     ```
