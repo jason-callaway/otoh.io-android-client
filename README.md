@@ -19,19 +19,31 @@ Also, you'll need the [Android Support Library](https://developer.android.com/to
 2. Clone the repository into the AndroidStudioProjects directory. Don't forget to checkout the branch you want to work on.
 
     ```
-    cd ~/AndroidStudioProjects/otoh.io  
-    git clone https://github.com/otohdotio/android.git  
-    git checkout interesting_branch  
+    $ cd ~/AndroidStudioProjects/otoh.io  
+    $ git clone https://github.com/otohdotio/android.git  
+    $ git checkout interesting_branch
     ```
 
 3. Copy the files to the right location.  
-```cd otoh.io-android-client; cp -Rp app ..```  
-4. Rename the repo to something useful to you, like:  
-```mv android otoh.io```  
-5. Download the [Spongy Castle](http://rtyley.github.io/spongycastle/) jars.  
-```cd otoh.io/app/libs
-wget http://search.maven.org/remotecontent?filepath=com/madgag/spongycastle/core/1.51.0.0/core-1.51.0.0.jar
-wget http://search.maven.org/remotecontent?filepath=com/madgag/spongycastle/prov/1.51.0.0/prov-1.51.0.0.jar
-wget http://search.maven.org/remotecontent?filepath=com/madgag/spongycastle/pkix/1.51.0.0/pkix-1.51.0.0.jar
-wget http://search.maven.org/remotecontent?filepath=com/madgag/spongycastle/pg/1.51.0.0/pg-1.51.0.0.jar```
+
+    ```
+    $ cd otoh.io-android-client  
+    $ cp -Rp app ..
+    ```
+4. Rename the repo to something useful to you, like:
+
+    ```
+    $ mv android otoh.io
+    ```
+
+5. Download the [Spongy Castle](http://rtyley.github.io/spongycastle/) jars.
+
+    ```
+    cd otoh.io/app/libs  
+    wget http://search.maven.org/remotecontent?filepath=com/madgag/spongycastle/core/1.51.0.0/core-1.51.0.0.jar  
+    wget http://search.maven.org/remotecontent?filepath=com/madgag/spongycastle/prov/1.51.0.0/prov-1.51.0.0.jar  
+    wget http://search.maven.org/remotecontent?filepath=com/madgag/spongycastle/pkix/1.51.0.0/pkix-1.51.0.0.jar  
+    wget http://search.maven.org/remotecontent?filepath=com/madgag/spongycastle/pg/1.51.0.0/pg-1.51.0.0.jar  
+    ```
+
 6. Gradle sync  
