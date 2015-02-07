@@ -17,9 +17,11 @@ Also, you'll need the [Android Support Library](https://developer.android.com/to
 
 1. Create a new [Android Studio](http://developer.android.com/tools/studio/index.html) project named otoh.io. Specify the company name as otoh.io as well.  
 2. Clone the repository into the AndroidStudioProjects directory. Don't forget to checkout the branch you want to work on.  
-```cd ~/AndroidStudioProjects/otoh.io
-git clone https://github.com/otohdotio/android.git
-git checkout interesting_branch```
+  ```
+  cd ~/AndroidStudioProjects/otoh.io
+  git clone https://github.com/otohdotio/android.git
+  git checkout interesting_branch
+  ```
 3. Copy the files to the right location.  
 ```cd otoh.io-android-client; cp -Rp app ..```  
 4. Rename the repo to something useful to you, like:  
