@@ -207,6 +207,7 @@ public class DisplayCertsActivity extends Activity implements AdapterView.OnItem
         } catch (Exception e) {
             e.printStackTrace();
         }
+/*
         try {
             // Install the KE cert
             String alias = "ke-" + nickname;
@@ -219,6 +220,7 @@ public class DisplayCertsActivity extends Activity implements AdapterView.OnItem
         } catch (Exception e) {
             e.printStackTrace();
         }
+*/
     }
 
 

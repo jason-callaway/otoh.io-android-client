@@ -296,7 +296,7 @@ public class GenIdentityActivity extends Activity {
 
                     copy(pkrin, pkrout);
                     copy(skrin, skrout);
-
+/*
                     // Last step is to populate our SQLite database
                     updateProgress("Updating Database");
                     SystemClock.sleep(1000);
@@ -332,7 +332,7 @@ public class GenIdentityActivity extends Activity {
                     map.put("keyringsType", "Public Keyring");
                     map.put("keyringsFingerprint", fingerprint);
                     dbUtils.insertCert(map, username);
-
+*/
                     // All done!
                     updateProgress("Complete");
                     SystemClock.sleep(1000);

@@ -124,7 +124,7 @@ public class otoh {
             out.flush();
             out.close();
 
-            int responseCode = conn.getResponseCode();
+            //int responseCode = conn.getResponseCode();
             BufferedReader read = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             StringBuilder response = new StringBuilder();
             String line = "";
@@ -161,7 +161,7 @@ public class otoh {
             out.flush();
             out.close();
 
-            int responseCode = conn.getResponseCode();
+            //int responseCode = conn.getResponseCode();
             BufferedReader read = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             StringBuilder response = new StringBuilder();
             String line = "";
@@ -187,7 +187,7 @@ public class otoh {
 //            KeyManagerFactory kmf = KeyManagerFactory.getInstance("SunX509");
             KeyManagerFactory kmf = KeyManagerFactory.getInstance("X509");
             kmf.init(k, kp.toCharArray());
-            SSLContext context = SSLContext.getInstance("TLS");
+            SSLContext context = SSLContext.getInstance("TLSv1.1");
 //          context.init(kmf.getKeyManagers(), null, new SecureRandom());
             context.init(kmf.getKeyManagers(), tmf.getTrustManagers(), new SecureRandom());
             SSLSocketFactory sockFact = context.getSocketFactory();
@@ -204,7 +204,7 @@ public class otoh {
             out.flush();
             out.close();
 
-            int responseCode = conn.getResponseCode();
+            //int responseCode = conn.getResponseCode();
             BufferedReader read = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             StringBuilder response = new StringBuilder();
             String line = "";
@@ -230,7 +230,7 @@ public class otoh {
 //            KeyManagerFactory kmf = KeyManagerFactory.getInstance("SunX509");
             KeyManagerFactory kmf = KeyManagerFactory.getInstance("X509");
             kmf.init(k, kp.toCharArray());
-            SSLContext context = SSLContext.getInstance("TLS");
+            SSLContext context = SSLContext.getInstance("TLSv1.2");
 //            context.init(kmf.getKeyManagers(), null, new SecureRandom());
             context.init(kmf.getKeyManagers(), tmf.getTrustManagers(), new SecureRandom());
             SSLSocketFactory sockFact = context.getSocketFactory();
@@ -247,7 +247,7 @@ public class otoh {
 //			out.flush();
 //			out.close();
 
-            int responseCode = conn.getResponseCode();
+            //int responseCode = conn.getResponseCode();
             BufferedReader read = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             StringBuilder response = new StringBuilder();
             String line = "";
@@ -617,7 +617,7 @@ public class otoh {
             String tmfAlgorithm = TrustManagerFactory.getDefaultAlgorithm();
             this.tmf = TrustManagerFactory.getInstance(tmfAlgorithm);
             tmf.init(keyStore);
-            this.sslContext = SSLContext.getInstance("TLS");
+            this.sslContext = SSLContext.getInstance("TLSv1.2");
             this.sslContext.init(null, tmf.getTrustManagers(), null);
 
         } catch (Exception e) {
